@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -e
+
+macruby_source_dir=/Library/Frameworks/MacRuby.framework/Versions
+
+macruby_versions=()
+for v in ${macruby_source_dir}/*; do
+  if [ -d ${v} ] && [ `basename ${v}` != "Current" ]; then
+    macruby_versions+=("${v}")
+  fi
+done
+
+if [ ${#macruby_versions[@]} -lt 1 ]; then
+  echo "no MacRuby versions found (in ${macruby_source_dir})"
+  exit 1
+fi
+
+for macruby_source_dir in ${macruby_versions[*]}; do
+  version_name="macruby-`basename ${macruby_source_dir}`"
+  version_dir=${RBENV_ROOT}/versions/${version_name}
+
+  if [ -f ${version_dir} ];then
+    echo "${version_name} already exists. Skipping..."
+  else
+    echo "Adding ${version_name}"
+    mkdir -p ${version_dir}/bin
+    mkdir ${version_dir}/lib
+    for b in macgem macirb macrdoc macri macruby; do
+      ln -s ${macruby_source_dir}/usr/bin/${b} ${version_dir}/bin/${b:3}
+    done
+  fi
+done
+

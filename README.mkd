@@ -1,0 +1,32 @@
+# rbenv-gemset
+
+rbenv-macruby is an extension for the [rbenv][rbenv] ruby version manager that allows you to use
+[MacRuby][macruby] versions installed via the MacRuby installer with rbenv. When using MacRuby
+through rbenv you can use the normal ruby binary names instead of the ones prefixed by "mac" (e.g.
+`ruby` instead of `macruby`, `irb` instead of `macirb`...). Further gems are stored inside the
+`~/.rbenv` directory and managed independently of the system MacRuby gems (which alleviates the need
+for `sudo` when installing gems and keeps `/usr/local/bin` free of MacRuby gem binary symlinks.)
+
+## Installation
+
+Clone rbenv-macruby to the `$HOME/.rbenv/plugins` directory:
+
+  $ mkdir -p ~/.rbenv/plugins
+  $ cd ~/.rbenv/plugins
+  $ git clone git://github.com/brettg/rbenv-macruby.git
+
+## Usage
+
+There is only one setup command that should be run once initially and each time
+you add:
+  $ rbenv macruby init
+
+Once installed `rbenv versions` should list all installed version of MacRuby. Just setup rbenv to
+use one of those and use MacRuby as you would ruby.
+
+## TODO
+* [rbenv-gemset][rbenv-gemset] should work as normal.
+
+[macruby]: http://macruby.org/
+[rbenv]: http://github.com/sstephenson/rbenv
+[rbenv-gemset]: http://github.com/sstephenson/rbenv-gemset
