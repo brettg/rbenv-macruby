@@ -11,21 +11,22 @@ for `sudo` when installing gems and keeps `/usr/local/bin` free of MacRuby gem b
 
 Clone rbenv-macruby to the `$HOME/.rbenv/plugins` directory:
 
-  $ mkdir -p ~/.rbenv/plugins
-  $ cd ~/.rbenv/plugins
-  $ git clone git://github.com/brettg/rbenv-macruby.git
+```
+$ mkdir -p ~/.rbenv/plugins
+$ cd ~/.rbenv/plugins
+$ git clone git://github.com/brettg/rbenv-macruby.git
+```
 
 ## Usage
 
 There is only one setup command that should be run once initially and each time
 you add:
-  $ rbenv macruby init
+```
+$ rbenv macruby init
+```
 
 Once installed `rbenv versions` should list all installed version of MacRuby. Just setup rbenv to
 use one of those and use MacRuby as you would ruby.
-
-## TODO
-* [rbenv-gemset][rbenv-gemset] should work as normal.
 
 [macruby]: http://macruby.org/
 [rbenv]: http://github.com/sstephenson/rbenv
