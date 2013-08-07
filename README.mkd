@@ -1,4 +1,4 @@
-# rbenv-gemset
+# rbenv-macruby
 
 rbenv-macruby is an extension for the [rbenv][rbenv] ruby version manager that allows you to use
 [MacRuby][macruby] versions installed via the MacRuby installer with rbenv. When using MacRuby
